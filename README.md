@@ -24,7 +24,7 @@ During segmenting process, the score of a word alternative Wi is calculated as f
 
 Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is an experiment value measured by trial and error analysis.
 
-Moreover, if C(Wi, Wi-1) does not exist in training data, that the score of Wi is measured as follows:
+Moreover, if C(Wi, Wi-1) does not exist in training data, that the score of Wi will be estimated as follows:
 
             score = freq/(base)^length
 
