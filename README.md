@@ -1,6 +1,6 @@
 # Chinese-Word-Segmenter
 
-A word segmenter written in pure Java. It is designed based on the assumption of Bigram model, requiring no lexicon in advance. To avoid redundant calculations of probabilities between words, it utilizes a new word scoring method based on word length, frequency and occurrence frequency statistics. In addition, to enhance the reliability of word scoring, a feedback mechanism is introduced. 
+A word segmenter written purely in Java. It is designed based on the assumption of Bigram model, requiring no lexicon in advance. To avoid redundant calculations of probabilities between words, a new word scoring method is implemented, which is based on the estimation of word length, frequency and occurrence frequencies. In addition, to enhance the reliability of word scoring, a feedback mechanism is introduced. 
 
 It is developed for fun.
 Modules for part-of-speech tagging and unknown word recognition are still under development.
@@ -10,7 +10,7 @@ Corpus file:
 
 standard-text.txt: People's Daily of the year 1998, which contains roughly 15,000,000 words that have been manually segmented.
 
-Serialized files (containing data trained on the corpus and ready to be used):
+Serialized files (containing data trained from the corpus and ready to be used):
 
 1. wordFreq.temp: word frequency statistics, stored as HashMap \<word, frequency>
 2. markovChain.temp: occurrence frequency statistics, stored as HashMap \<word, HashMap \<successor, occurrence frequency>>
@@ -18,21 +18,20 @@ Serialized files (containing data trained on the corpus and ready to be used):
 # Word Scoring and Feedback Mechanism
 This segmenter identifies word boundaries by estimating and comparing the score values of all possible word alternatives (possible segmentation solutions).
 
-During segmentation process, the score of a word alternative Wi is calculated as follows:
+During segmenting process, the score of a word alternative Wi is calculated as follows:
 
              score = C(Wi, Wi-1)*[(base)^length]
 
 Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is an experiment value measured by trial and error analysis.
 
-Moreover, considering the possibility that Wi and Wi-1 may not appear adjacently in training data, the score of Wi can be calculated as follows in case C (Wi, Wi-1) does not exist:
+Moreover, if C(Wi, Wi-1) does not exist in training data, that the score of Wi is measured as follows:
 
-            score = Cwi/(base)^length
+            score = freq/(base)^length
 
-Where Cwi and length are the frequency and word length of Wi respectively.
+Where freq and length are the frequency and word length of Wi respectively.
 
 After word scoring, the score value of Wi will be adjusted by adding a feedback value.
 The measurement of feedback value is as same as word scoring, but with Wi-1 replaced by Wi and Wi replaced by Wi+1.
-
 Finally, the word alternative with the highest score will be accepted as the segmentation result.
 
 #Performance
