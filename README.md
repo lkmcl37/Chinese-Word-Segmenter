@@ -22,7 +22,7 @@ During segmentation process, the score of a word alternative Wi is calculated as
 
              score = C(Wi, Wi-1)*[(base)^length]
 
-Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is a experiment value measured by trial and error analysis.
+Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is an experiment value measured by trial and error analysis.
 
 Moreover, considering the possibility that Wi and Wi-1 may not appear adjacently in training data, the score of Wi can be calculated as follows in case C (Wi, Wi-1) does not exist:
 
@@ -33,7 +33,7 @@ Where Cwi and length are the frequency and word length of Wi respectively.
 After word scoring, the score value of Wi will be adjusted by adding a feedback value.
 The measurement of feedback value is as same as word scoring, but with Wi-1 replaced by Wi and Wi replaced by Wi+1.
 
-Finally, the word alternative with the highest score will be accepted and marked as the segmentation result.
+Finally, the word alternative with the highest score will be accepted as the segmentation result.
 
 #Performance
 The text used for experiment is from the People's Daily 1998, which contains 253 3709 lines, with a total of 2837 4490 Chinese characters. The experiment environment is shown as follows:
