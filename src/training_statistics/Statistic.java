@@ -68,28 +68,6 @@ public class Statistic {
 		}
 	}
 
-	public void adjustFreq() throws IOException {
-
-		String encode = "utf-8";
-		File dict = new File("D:\\Dict.txt");
-		if (!dict.isFile()) {
-			System.out.println("Cannot find dictionary");
-		}
-		BufferedReader br = new BufferedReader(new InputStreamReader(
-				new FileInputStream(dict), encode));
-
-		for (String line = br.readLine(); line != null; line = br.readLine()) {
-			String[] line_seg = line.split("	");
-			String word = line_seg[0];
-			int freq = Integer.parseInt(line_seg[1]);
-
-			if (wordFreq.containsKey(word)) {
-				wordFreq.put(word, freq + wordFreq.get(word));
-			}
-		}
-		br.close();
-	}
-
 	public void WordFreqAndMarkovChainSerialize(File file) throws IOException {
 
 		statWordFreqAndMarkovChain(file);
