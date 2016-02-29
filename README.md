@@ -13,7 +13,7 @@ Corpus file:
 
 standard-text.txt: People's Daily of the year 1998, which contains roughly 15,000,000 words that have been manually segmented.
 
-Serialized files (containing data trained from the corpus and ready to be used):
+Serialized files (include data trained from the corpus and ready to be used):
 
 1. wordFreq.temp: word frequency statistics (containing HashMap \<word, frequency>)
 2. markovChain.temp: occurrence frequency statistics, (containing HashMap \<word, HashMap \<successor, occurrence frequency>>)
@@ -24,9 +24,9 @@ During segmenting process, the score of a word alternative Wi is calculated as f
 
          score = C(Wi, Wi-1)*[(base)^length]
          
-Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is an experiment value measured by trial and error analysis.
+Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is an experiment value(a constant).
 
-Moreover, if C(Wi, Wi-1) does not exist in training data, that the score of Wi will be estimated as follows:
+Moreover, if C(Wi, Wi-1) does not exist in training data, that the score of Wi will be estimated as:
 
         score = freq/(base)^length
         
