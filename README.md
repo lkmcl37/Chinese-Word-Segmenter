@@ -7,15 +7,6 @@ The scoring method is based on the measurement of word length, frequency and occ
 # Usage
 To segment raw texts, please use *Run.java*
 
-# Training Data Files
-Corpus file:
-
-standard-text.txt: People's Daily of the year 1998, which contains roughly 15,000,000 words that have been manually segmented.
-
-Serialized files:
-
-1. wordFreq.temp: word frequency statistics (containing HashMap \<word, frequency>)
-2. markovChain.temp: occurrence frequency statistics, (containing HashMap \<word, HashMap \<successor, occurrence frequency>>)
 
 #Word Scoring
 
