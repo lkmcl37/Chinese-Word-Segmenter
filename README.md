@@ -1,6 +1,6 @@
 # Chinese-Word-Segmenter
 
-A word segmenter written in Java, requiring no dictionary and calculations of probabilities in advance. It identifies word boundaries by estimating and comparing the score of each candidate segments (possible segmentation solutions).
+A word segmenter written in Java, requiring no dictionary in advance. It identifies word boundaries by estimating and comparing the score of each candidate segments (possible segmentation solutions).
 The scoring method is based on the measurement of word length, frequency and occurrence frequencies.
 
 
