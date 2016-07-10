@@ -1,6 +1,6 @@
 # Chinese-Word-Segmenter
 
-A word segmenter written in Java, requiring no dictionary and calculations of probabilities in advance. It identifies word boundaries by estimating and comparing the scores of candidate segments (possible segmentation solutions).
+A word segmenter written in Java, requiring no dictionary and calculations of probabilities in advance. It identifies word boundaries by estimating and comparing the score of each candidate segments (possible segmentation solutions).
 The scoring method is based on the measurement of word length, frequency and occurrence frequencies.
 
 
@@ -14,7 +14,7 @@ During segmenting process, the score of a candidate word Wi is calculated as fol
 
          score = C(Wi, Wi-1)*[(base)^length]
          
-Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is a constant value.
+Where C(Wi, Wi-1) is the co-occurrence frequency of Wi and its precursor Wi-1, length is the word length of Wi, base is a constant.
 
 Moreover, if C(Wi, Wi-1) does not exist in training data, that the score of Wi will be estimated as:
 
